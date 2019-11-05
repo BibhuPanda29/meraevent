@@ -6,6 +6,7 @@
       <class name="testMethod.CreateEvent">
         <methods>
           <include name="CreateEvents"/>
+          <include name="close"/>
           <include name="launch"/>
         </methods>
       </class> <!-- testMethod.CreateEvent -->

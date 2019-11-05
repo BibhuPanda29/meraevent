@@ -97,7 +97,7 @@ public class CreateEventPage {
 		String Cityname = null;
 		String Pincode_pin = null;
 		String Ticket_Name = null;
-		String url = "wwww."+getSaltString() + ".com";
+		String url = ""+getSaltString() + "";
 		String TPrice = null;
 		try {
 			EventName = ExcelUtils.getData(1,0);
@@ -151,7 +151,7 @@ public class CreateEventPage {
 			// TODO: handle exception
 			System.out.println(e);
 		}
-		String ActualResult = driver.findElement(By.xpath("//a[@title="+EventName+"]")).getAttribute("title");
+		String ActualResult = driver.findElement(By.xpath("//a[@title='"+EventName+"']")).getAttribute("title");
 		System.out.println(ActualResult);
 		Assert.assertEquals(ActualResult, EventName);
 		

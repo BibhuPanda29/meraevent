@@ -5,21 +5,25 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Dashboard {
+public class UserDrp {
 	WebDriver driver = null;
 //	String projectPath = System.getProperty("user.dir");
-	public Dashboard() {
+	public UserDrp() {
     }
-	public Dashboard(WebDriver driver) {
+	public UserDrp(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);        
     }
 	
-	@FindBy(xpath = "//a[@href='https://www.meraevents.com/dashboard/event/create/']")
-	private WebElement CreateEvent;
+	@FindBy(id = "user-toggle")
+	private WebElement UserToggle;
+	@FindBy(xpath = "//*[contains(text(),' Logout')]")
+	private WebElement Logout;
 	
-	public void navigateToEvent() {
-		CreateEvent.click();
+	public void LogoutUser() throws InterruptedException {
+		UserToggle.click();
+		Thread.sleep(2000);
+		Logout.click();
 	}
 
 }

@@ -14,6 +14,7 @@ import objectRepo.CreateEventPage;
 import objectRepo.Dashboard;
 import objectRepo.HomePage;
 import objectRepo.Login;
+import objectRepo.UserDrp;
 
 public class CreateEvent {
 	WebDriver driver = null;
@@ -23,6 +24,7 @@ public class CreateEvent {
 	Login login = null;
 	Dashboard createEvent = null;
 	CreateEventPage addEvent = null;
+	UserDrp userAct = null;
   
 	@BeforeTest
 	public void launch() {
@@ -51,7 +53,10 @@ public class CreateEvent {
 	  
   }
   @AfterTest
-  public void close() {
+  public void close() throws InterruptedException {
+	  userAct = new UserDrp(driver);
+	  userAct.LogoutUser();
+	  Thread.sleep(8000);
 	  driver.close();
   }
 }
